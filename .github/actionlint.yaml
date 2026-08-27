@@ -20,3 +20,11 @@ paths:
       # (cancel-in-progress, group), so it reports the key as
       # unexpected. Remove this ignore once actionlint learns it.
       - 'unexpected key "queue" for "concurrency" section'
+
+  # The example caller mirrors that concurrency block, so it needs the
+  # same ignore for the same reason. It only started being linted once
+  # the actionlint hook widened its scope to examples/; see
+  # .pre-commit-config.yaml. Retire both entries together.
+  examples/semantic-pull-request/github.yaml:
+    ignore:
+      - 'unexpected key "queue" for "concurrency" section'
